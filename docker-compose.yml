@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  webapi:
+    image: ${DOCKER_REGISTRY-}webapi
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: WebApi
+    ports:
+      - 30056:80
+    networks:
+      - testnet
+
+networks: 
+  testnet:
+    name: testnet
